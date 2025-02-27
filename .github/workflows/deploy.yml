@@ -10,9 +10,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: Get & Cache Dependencies
+        id: deps_cache
         uses: ./.github/actions/cached-dep
         with:
           caching: 'false'
+      - name: Output steps
+        run: steps.deps_cache.outputs.ecache-deps
       - name: Lint code
         run: npm run lint
   test:
