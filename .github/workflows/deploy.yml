@@ -12,10 +12,10 @@ jobs:
       - name: Get & Cache Dependencies
         id: deps_cache
         uses: ./.github/actions/cached-dep
-        with:
-          caching: 'false'
+        # with:
+        #   caching: 'false'
       - name: Output steps
-        run: echo "Cache used? ${{ steps.deps_cache.outputs.cache-deps }}
+        run: echo "Cache used? ${{ steps.deps_cache.outputs.cache-deps }}"
       - name: Lint code
         run: npm run lint
   test:
